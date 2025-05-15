@@ -1,8 +1,11 @@
 import ListGroup from "./components/ListGroup";
+import { MouseEvent } from "react"; 
 
 function App() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-  // items = [];
+
+  //Event handler
+  const handleClick = (e: MouseEvent) => console.log(e);
 
   return (
     <>
@@ -10,8 +13,10 @@ function App() {
       
       {items.length === 0 && <p>NO ITEMS!!!! NOOOO!!!!!</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item, index) => (
+          <li className= "list-group-item" key={item} onClick={handleClick}>
+            
+            {item}</li>
         ))}
       </ul>
     </>
